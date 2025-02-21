@@ -1,0 +1,56 @@
+<idea-plugin>
+    <id>org.altzet.foldercreator</id>
+    <name>TDD Flutter Architect</name>
+    <vendor email="abbbos166@gmail.com" url="https://www.linkedin.com/in/abbos-mamadaliyev-bb44b4200/">Abbos Mamadaliyev
+    </vendor>
+    <description><![CDATA[
+  <h3>TDD Flutter Architect Plugin</h3>
+  <p>
+    This plugin automatically creates a structured folder layout for your project based on Test Driven Development (TDD) principles and now includes essential boilerplate code generation for each architectural layer. Once installed, simply right-click on any folder in your project, choose "New" from the context menu, and select <strong>Create TDD Folders</strong>.
+  </p>
+  <p>
+    When prompted, enter the desired folder name and the plugin will generate the primary subfolders: <strong>data</strong>, <strong>domain</strong>, and <strong>presentation</strong>.
+  </p>
+  <p>
+    In addition to the folder structure, the plugin automatically generates initial code files for your project. For example, if you enter "auth" as the folder name, it will create:
+    <ul>
+      <li><strong>data/datasources/auth_datasource.dart</strong> – with an abstract class and its implementation.</li>
+      <li><strong>data/repositories/auth_repository_impl.dart</strong> – containing a concrete repository implementation.</li>
+      <li><strong>data/models/auth_model.dart</strong> – with JSON serialization stubs.</li>
+      <li><strong>domain/repositories/auth_repository.dart</strong> – as an abstract repository interface.</li>
+      <li><strong>domain/entities/auth_entity.dart</strong> – defining the domain entity.</li>
+    </ul>
+  </p>
+  <p>
+    The <strong>presentation</strong> folder is pre-structured with subfolders for <em>blocs</em>, <em>pages</em>, and <em>widgets</em> to support your user interface components.
+  </p>
+  <p>
+    By automating both folder creation and initial code generation, the TDD Flutter Architect Plugin kickstarts your project with a clean, organized architecture that adheres to TDD best practices, making your project more maintainable and scalable. Ideal for Flutter, Android Studio, and other IntelliJ platform-based projects.
+  </p>
+]]></description>
+
+
+    <!-- "What's New"  : -->
+    <change-notes>
+        <![CDATA[
+    <h3>What's New in 1.0.4</h3>
+    <ul>
+      <li>Added boilerplate code generation for datasource, repository, entity, and model files.</li>
+      <li>Enhanced folder and file creation process for better consistency.</li>
+      <li>Minor bug fixes and performance improvements.</li>
+    </ul>
+  ]]>
+    </change-notes>
+
+    <actions>
+        <action id="org.altzet.actions.CreateFolderAction"
+                class="org.altzet.actions.CreateFolderAction"
+                text="Create TDD Folders"
+                description="Create TDD folder structure"
+                icon="/icons/folder.svg">
+
+
+            <add-to-group group-id="NewGroup" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
