@@ -29,6 +29,8 @@
   </p>
 ]]></description>
 
+    <!-- minimum depend -->
+    <depends>com.intellij.modules.platform</depends>
 
     <!-- "What's New"  : -->
     <change-notes>
