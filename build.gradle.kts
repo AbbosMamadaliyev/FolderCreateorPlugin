@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "org.altzet"
-version = "1.0.5"
+version = "1.0.6"
 
 repositories {
     mavenCentral()
@@ -19,6 +19,9 @@ intellij {
 
 
     plugins.set(listOf())
+
+    // Avtomatik ravishda since-build va until-build qiymatlarini yangilash
+    updateSinceUntilBuild.set(true)
 }
 
 

@@ -29,16 +29,17 @@
   </p>
 ]]></description>
 
+    <!-- Qo'shimcha moslik sozlamalari -->
+    <idea-version since-build="231" until-build="*"/>
+
     <!-- minimum depend -->
     <depends>com.intellij.modules.platform</depends>
 
     <!-- "What's New"  : -->
     <change-notes>
         <![CDATA[
-    <h3>What's New in 1.0.4</h3>
+    <h3>What's New in 1.0.6</h3>
     <ul>
-      <li>Added boilerplate code generation for datasource, repository, entity, and model files.</li>
-      <li>Enhanced folder and file creation process for better consistency.</li>
       <li>Minor bug fixes and performance improvements.</li>
     </ul>
   ]]>

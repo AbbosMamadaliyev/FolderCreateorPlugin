@@ -34,6 +34,7 @@ public class CreateFolderAction extends AnAction {
                     public boolean checkInput(String inputString) {
                         return inputString != null && !inputString.trim().isEmpty();
                     }
+
                     @Override
                     public boolean canClose(String inputString) {
                         return true;
@@ -139,14 +140,16 @@ public class CreateFolderAction extends AnAction {
                     // e. data/models ichida: <folderName>_model.dart
                     if (modelsFolder != null) {
                         VirtualFile modelFile = modelsFolder.createChildData(this, folderNameLower + "_model.dart");
-                        String modelContent = "import '../../domain/entities/" + folderNameLower + "_entity.dart';\n\n" +
+                        String modelContent = "import 'package:json_annotation/json_annotation.dart';\n" +
+                                "import '../../domain/entities/" + folderNameLower + "_entity.dart';\n\n" +
                                 "part '" + folderNameLower + "_model.g.dart';\n\n" +
+                                "@JsonSerializable(fieldRename: FieldRename.snake)\n" +
                                 "class " + folderNameCapitalized + "Model extends " + folderNameCapitalized + "Entity {\n" +
                                 "  const " + folderNameCapitalized + "Model({\n" +
                                 "    super.login,\n" +
                                 "  });\n\n" +
-                                "  factory " + folderNameCapitalized + "Model.fromJson(Map<String, dynamic> json) => _\\$" + folderNameCapitalized + "ModelFromJson(json);\n\n" +
-                                "  Map<String, dynamic> toJson() => _\\$" + folderNameCapitalized + "ModelToJson(this);\n" +
+                                "  factory " + folderNameCapitalized + "Model.fromJson(Map<String, dynamic> json) => _$" + folderNameCapitalized + "ModelFromJson(json);\n\n" +
+                                "  Map<String, dynamic> toJson() => _$" + folderNameCapitalized + "ModelToJson(this);\n" +
                                 "}\n";
                         VfsUtil.saveText(modelFile, modelContent);
                     }
@@ -154,7 +157,8 @@ public class CreateFolderAction extends AnAction {
                     // f. presentation ichida: <folderName>_screen.dart
                     if (presentationFolder != null) {
                         VirtualFile screenFile = presentationFolder.createChildData(this, folderNameLower + "_screen.dart");
-                        String screenContent = "class " + folderNameCapitalized + "Screen extends StatefulWidget {\n" +
+                        String screenContent = "import 'package:flutter/material.dart';\n\n" +
+                                "class " + folderNameCapitalized + "Screen extends StatefulWidget {\n" +
                                 "  const " + folderNameCapitalized + "Screen({super.key});\n\n" +
                                 "  @override\n" +
                                 "  State<" + folderNameCapitalized + "Screen> createState() => _" + folderNameCapitalized + "ScreenState();\n" +
@@ -165,6 +169,7 @@ public class CreateFolderAction extends AnAction {
                                 "    return const Placeholder();\n" +
                                 "  }\n" +
                                 "}\n";
+
                         VfsUtil.saveText(screenFile, screenContent);
                     }
 
